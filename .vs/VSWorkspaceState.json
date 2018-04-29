@@ -1,0 +1,13 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\config",
+    "\\controllers",
+    "\\node_modules",
+    "\\node_modules\\sequelize",
+    "\\node_modules\\sequelize-cli",
+    "\\node_modules\\sequelize-cli\\lib"
+  ],
+  "SelectedNode": "\\node_modules\\sequelize\\index.js",
+  "PreviewInSolutionExplorer": false
+}
