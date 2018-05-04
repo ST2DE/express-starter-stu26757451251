@@ -9,6 +9,6 @@
     "\\seeders",
     "\\views"
   ],
-  "SelectedNode": "\\views\\index.pug",
+  "SelectedNode": "\\controllers\\taskController.js",
   "PreviewInSolutionExplorer": false
 }
