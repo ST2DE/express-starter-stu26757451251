@@ -5,12 +5,10 @@
     "\\controllers",
     "\\migrations",
     "\\models",
-    "\\node_modules\\sequelize",
-    "\\node_modules\\sequelize-cli",
-    "\\node_modules\\sequelize-cli\\lib",
     "\\routes",
-    "\\seeders"
+    "\\seeders",
+    "\\views"
   ],
-  "SelectedNode": "\\controllers\\taskController.js",
+  "SelectedNode": "\\views\\index.pug",
   "PreviewInSolutionExplorer": false
 }
