@@ -3,11 +3,14 @@
     "",
     "\\config",
     "\\controllers",
-    "\\node_modules",
+    "\\migrations",
+    "\\models",
     "\\node_modules\\sequelize",
     "\\node_modules\\sequelize-cli",
-    "\\node_modules\\sequelize-cli\\lib"
+    "\\node_modules\\sequelize-cli\\lib",
+    "\\routes",
+    "\\seeders"
   ],
-  "SelectedNode": "\\node_modules\\sequelize\\index.js",
+  "SelectedNode": "\\controllers\\taskController.js",
   "PreviewInSolutionExplorer": false
 }

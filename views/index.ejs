@@ -1,7 +1,28 @@
+<style>
+  
+  input{
+  
+    width:400px;
+    
+  };
+  
+</style>
+
+
 <h2>所有資料</h2>
 
-<ul>
+<form action="/tasks" method="post">
+  
+  <ul>
     <% tasks.forEach(function(task) { %>
-        <li><a href='/task/<%= task.id %>'><%= task.id %>: <%= task.title %></a></li>
+    <li>
+      <a href='/task/'
+        <%= task.id %>'><%= task.id %>: <%= task.title %>
+      </a>
+    </li>
     <% }); %>
-</ul>
+  </ul>
+  <input type="text" name="id" placeholder ="type id"></input>
+  <input type="text" name="title" placeholder ="type the tasks you want to add"></input>
+  <button type="submit">新增!</button>
+</form>
