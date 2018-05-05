@@ -1,28 +1,46 @@
-<style>
-  
-  input{
-  
+<!DOCTYPE html>
+<html lang="en">
+
+  <style>
+
+    input{
+
     width:400px;
-    
-  };
+
+    };
+
+  </style>
   
-</style>
+  <head>
+    <meta charset="UTF-8">
+      <title>Todolist</title>
+      <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+ </head>
 
+  <body>
+    <center>
+      <h2>所有資料</h2>
 
-<h2>所有資料</h2>
+      <form action="/tasks" method="post">
 
-<form action="/tasks" method="post">
-  
-  <ul>
-    <% tasks.forEach(function(task) { %>
-    <li>
-      <a href='/task/'
-        <%= task.id %>'><%= task.id %>: <%= task.title %>
-      </a>
-    </li>
-    <% }); %>
-  </ul>
-  <input type="text" name="id" placeholder ="type id"></input>
-  <input type="text" name="title" placeholder ="type the tasks you want to add"></input>
-  <button type="submit">新增!</button>
-</form>
+        <ul class="w3-ul w3-center" style="color:rgba(0,0,0,0.7)">
+          <% tasks.forEach(function(task) { %>
+          <li>
+            <a href='/task/'
+              <%= task.id %>'><%= task.id %>: <%= task.title %>
+            </a>
+          </li>
+          <% }); %>
+        </ul>
+
+        <br>
+        <br>
+        <input style="text-align: center;" type="text" name="id" placeholder ="ID place"></input>
+          
+        <input style="text-align: center;" type="text" name="title" placeholder ="type the tasks you want to add"></input>
+        <button type="submit" onClick="window.location.reload()">新增!</button>
+      </form>
+    </center>
+  </body>
+
+</html>
