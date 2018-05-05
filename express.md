@@ -1,6 +1,6 @@
 
 ----
-### À³¥Îµ{¦¡²£¥Í¾¹ Express generator
+### æ‡‰ç”¨ç¨‹å¼ç”¢ç”Ÿå™¨ Express generator
 
 ``` bash
 npm install express-generator -g
@@ -22,7 +22,7 @@ npm install
 
 ----
 
-### route structure (route ªºµ²ºc)
+### route structure (route çš„çµæ§‹)
 
 app.method(path, handler);
 
@@ -49,11 +49,11 @@ app.post('/', function (req, res) {
 
 ---
 
-####­«­n!!! : 
-	Var app = Express() (¶}±Òexpressªº¶}Ãö)
+#### é‡è¦!!! : 
+	Var app = Express() (é–‹å•Ÿexpressçš„é–‹é—œ)
 
 	Middleware:::
 	App.use will execute every route
-	App.use ¤@©w­n¥ı¨Ï¥Î¨ì¡A¦b§A¨Ï¥Î¥ô¦ó get.¤§«e	
-	¦Ó¥Bapp.use ©M¦bµ{¦¡½Xªº¶¶§Ç¦³µ´¹ïªºÃö«Y
+	App.use ä¸€å®šè¦å…ˆä½¿ç”¨åˆ°ï¼Œåœ¨ä½ ä½¿ç”¨ä»»ä½• get.ä¹‹å‰	
+	è€Œä¸”app.use å’Œåœ¨ç¨‹å¼ç¢¼çš„é †åºæœ‰çµ•å°çš„é—œä¿‚
 
