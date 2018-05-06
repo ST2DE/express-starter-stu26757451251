@@ -19,14 +19,16 @@
 	   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-  </head>
+	</head>
 
   <body>
-	
-	<section>
-        <button style="margin-left: 30px; margin-top: 30px;" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+
+	<button style="margin-left: 30px; margin-top: 30px;" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
         Sign up
         </button>
+
+	<center>
+        
 
         <!-- Modal -->
        
@@ -47,31 +49,36 @@
                 <input  style="text-align: center;" type="text" name="password" placeholder ="type the tasks you want to add"></input>
 
               </div>
-			 </form>
-             <div class="modal-footer">
+			
+              <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Submit</button>
-             </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+			  </form>
             </div>
           </div>
         </div>
-	</section>
+	</center>
 
 
 	
     <center>
       <h2>所有資料</h2>
-
+	  <h4 style="font-style: italic">Click tasks to edit~</h4>
       <form action="/tasks" method="post">
 
         <ul class="w3-ul w3-center" style="color:rgba(0,0,0,0.7)">
           <% tasks.forEach(function(task) { %>
-          <li>
-            <a href='/task/'
+          <li class="w3-display-container"> 
+			<a class="w3-right  w3-button" href="/delete?id=<%= task.id%>" style="text-decoration: none;">×</a>
+            <a href='/tasks/edit?id=<%= task.id %>'
               <%= task.id %>'><%= task.id %>: <%= task.title %>
             </a>
           </li>
+		  <br>
           <% }); %>
+
+
         </ul>
 
         <br>

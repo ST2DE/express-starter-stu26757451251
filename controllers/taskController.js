@@ -29,14 +29,38 @@ let taskController = {
                 return res.redirect('/tasks');
             })
     },
-    newmember: function (req, res,next) {
+    newmember: function (req, res, next) {
         user.findOrCreate({ where: { username: req.body.username }, defaults: { password: req.body.password } })
         .spread((user, created) => {
             console.log(user.get({
                 plain: true
             }))
             console.log(created)
+            })
+        return res.redirect('/tasks');  
+    },
+    taskedit: function (req, res, next) {
+        let id = req.query.id;
+        Task.findById(id).then(Task => {
+            console.log(Task.title);
+            res.render('taskeditpage', {'task':Task});
         })
+
+        
+    },
+    editTable: function (req, res, next) {
+        Task.findById(req.body.id).then(Task => {
+            Task.updateAttributes({
+                title:req.body.title
+            })
+        })
+        return res.redirect('/tasks');
+        
+    },
+    taskdelete: function (req, res, next) {
+        Task.destroy({ where: { id: req.query.id } })
+        console.log("deleted");
+        return res.redirect('/tasks');
     }
 };
 module.exports = taskController;
