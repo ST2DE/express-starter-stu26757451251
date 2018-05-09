@@ -6,7 +6,7 @@ var user = db.user;
 
 let taskController = {
     index: function (req, res) {
-        Task.findAll()
+        Task.findAll({ where: {deleted:0}})
             .then(function (tasks) {
                 res.render('index', { "tasks": tasks });
             });
@@ -18,7 +18,7 @@ let taskController = {
             });
     },
     todo: function (req, res,next) {
-        Task.findOrCreate({ where: { id: req.body.id }, defaults: { title: req.body.title } })
+        Task.findOrCreate({ where: { id: req.body.id }, defaults: { title: req.body.title , deleted:0} })
         .spread((Task, created) => {
             console.log(Task.get({
                  plain:true
@@ -58,9 +58,15 @@ let taskController = {
         
     },
     taskdelete: function (req, res, next) {
-        Task.destroy({ where: { id: req.query.id } })
-        console.log("deleted");
-        return res.redirect('/tasks');
+        
+        Task.findById(req.query.id).then(Task => {
+            Task.updateAttributes({
+                deleted: 1
+            })
+            console.log("Fake deleted");
+            return res.redirect('/tasks');
+        })
+        
     }
 };
 module.exports = taskController;
