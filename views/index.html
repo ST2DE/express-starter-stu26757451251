@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+  <style>
+
+    input{
+
+    width:400px;
+
+    };
+
+  </style>
+  
+  <head>
+    <meta charset="UTF-8">
+    <title>Todolist</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </head>
+
+  <body style="background-image:url(spring.jpg); background-size: 100% ;">
+  
+
+<!-- Links (sit on top) -->
+<div class="w3-top">
+  <div class="w3-row w3-padding w3-black">
+    <div class="w3-col s3">
+      <a href="#" class="w3-button w3-block w3-black" data-toggle="modal" data-target="#exampleModalCenter">SIGN UP</a>
+    </div>
+    <div class="w3-col s3">
+      <a href="#about" class="w3-button w3-block w3-black">ABOUT</a>
+    </div>
+    <div class="w3-col s3">
+      <a href="#menu" class="w3-button w3-block w3-black">LOGIN</a>
+    </div>
+    <div class="w3-col s3">
+      <a href="#where" class="w3-button w3-block w3-black">LOGOUT</a>
+    </div>
+  </div>
+</div>
+
+  <center>
+        
+
+        <!-- Modal -->
+          
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Join Us</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+       <form action="/adduser" method="post">
+              <div class="modal-body">
+                Username:
+                <input style="text-align: center;" type="text" name="username" placeholder ="type the username"></input>
+                Password:
+                <input  style="text-align: center;" type="text" name="password" placeholder ="type the password"></input>
+
+              </div>
+      
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+        </form>
+            </div>
+          </div>
+        </div>
+  </center>
+
+
+  
+    <center style="margin-top:100px ">
+      <h2>所有資料</h2>
+    <h4 style="font-style: italic">Click tasks to edit~</h4>
+      <form action="/tasks" method="post">
+
+        <ul class="w3-ul w3-center" style="color:rgba(0,0,0,0.7)">
+          <% tasks.forEach(function(task) { %>
+          <li class="w3-display-container"> 
+      <a class="w3-right  w3-button" href="/delete?id=<%= task.id%>" style="text-decoration: none;">×</a>
+            <a href='/tasks/edit?id=<%= task.id %>'
+              <%= task.id %>'><%= task.title %>
+            </a>
+          </li>
+      <br>
+          <% }); %>
+
+
+        </ul>
+
+        <br>
+        <br>
+        <input hidden style="text-align: center;" type="text" name="id" placeholder ="ID place"></input>
+          
+        <input style="text-align: center;" type="text" name="title" placeholder ="type the tasks you want to add"></input>
+
+        <button type="submit" onClick="window.location.reload()">新增!</button>
+      </form>
+    </center>
+  </body>
+
+</html>

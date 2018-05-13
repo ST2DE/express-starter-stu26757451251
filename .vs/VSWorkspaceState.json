@@ -5,6 +5,7 @@
     "\\controllers",
     "\\migrations",
     "\\models",
+    "\\node_modules\\builtin-modules",
     "\\routes",
     "\\seeders",
     "\\views"
