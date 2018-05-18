@@ -1,11 +1,10 @@
 const taskController = require('../controllers/taskController.js');
+const authController = require('../controllers/authController.js');
 const express = require('express');
 const app = express();
 
 
 module.exports = function (app) {
-    
-
 
     app.get('/tasks', taskController.index);
     app.get('/api/tasks', taskController.indexApi);
@@ -20,6 +19,12 @@ module.exports = function (app) {
     app.get('/', function (req, res) {
         res.render('getstart');
     })
+
+    app.get('/login', authController.showLogin);
+    app.post('/login', authController.doLogin);
+    app.get('/logout', authController.doLogout);
+    app.get('/protected', authController.protected);
+
 
 };
 

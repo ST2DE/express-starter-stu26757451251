@@ -12,6 +12,14 @@ module.exports = {
         isBetaMember: false
       }], {});
     */
+    queryInterface.bulkInsert('Users', [{
+        username: 'admin',
+        password: 'admin',
+        createdAt : new Date(),
+        updatedAt : new Date(),
+      }], {});
+
+
     return queryInterface.bulkInsert('Tasks', [{
         title: '測試 A',
         createdAt : new Date(),
