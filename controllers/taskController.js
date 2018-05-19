@@ -6,10 +6,19 @@ var user = db.user;
 
 let taskController = {
     index: function (req, res) {
-        Task.findAll({ where: {deleted:0}})
-            .then(function (tasks) {
-                res.render('index', { "tasks": tasks });
-            });
+        var isLogin = false;
+        if(req.signedCookies.isLogin){
+          isLogin = true;
+        }
+        if(isLogin){
+          Task.findAll({ where: {deleted:0}})
+              .then(function (tasks) {
+                  res.render('index', { "tasks": tasks });
+              });
+        }
+        else{
+          return res.redirect('/');
+        }
     },
     indexApi: function (req, res) {
         Task.findAll()

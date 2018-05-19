@@ -8,6 +8,7 @@ var User = require('./models');
 // invoke an instance of express application.
 var app = express();
 
+
 // set morgan to log info about our requests for development use.
 app.use(morgan('dev'));
 

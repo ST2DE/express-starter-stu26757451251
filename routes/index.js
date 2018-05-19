@@ -1,6 +1,5 @@
 const taskController = require('../controllers/taskController.js');
-const express = require('express');
-const app = express();
+const authController = require('../controllers/authController.js');
 
 
 module.exports = function (app) {
@@ -20,6 +19,9 @@ module.exports = function (app) {
     app.get('/', function (req, res) {
         res.render('getstart');
     })
+  
+    app.post('/login',authController.doLogin);
+    
 
 };
 

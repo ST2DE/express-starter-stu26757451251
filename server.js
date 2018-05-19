@@ -1,6 +1,10 @@
 var express = require('express');
 var app = express();
 
+var cookieParser = require('cookie-parser');
+app.use(cookieParser('123456789'));
+
+
 var db = require('./models');
 
 var bodyParser = require('body-parser');
